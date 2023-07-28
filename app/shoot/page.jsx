@@ -15,7 +15,7 @@ export default function Shoot() {
     const isMdScreen = useMediaQuery(theme.breakpoints.down('md'));
 
     const commercialSection = (
-        <Section id="#commercial"
+        <Section id="commercial"
                  sectionTitle="КОММЕРЧЕСКАЯ СЪЕМКА"
                  details={[
                      "Я работаю исключительно в своем стиле. Ознакомиться с ним вы можете в моем инстаграме. При этом я всегда рад пожеланиям в рамках того, что я снимаю. Вне рамок своего стиля я не работаю. Если вы соглашаетесь на съемку у меня, это подразумевает то, что вы ознакомились с той стилистикой, в которой я работаю.",
@@ -110,7 +110,7 @@ export default function Shoot() {
                 {!isMdScreen && commercialSection
                 }
                 <Section
-                    id="#tfp"
+                    id="tfp"
                     bgColor="secondary.main"
                     sectionTitle="TFP СЪЕМКА"
                     details={[

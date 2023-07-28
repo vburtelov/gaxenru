@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 export default function Section({
-                                    id = "tfp",
+                                    id,
                                     sectionTitle = "TFP СЪЕМКА",
                                     details = [],
                                     buttonLabel = "ПРИСЛАТЬ ФОТОГРАФИИ",
@@ -35,7 +35,7 @@ export default function Section({
                         <i>{sectionTitle}</i>
                     </Typography>
                     {details.map((detail) =>
-                        <Typography mb={2} variant="subtitle1" key={detail.number}>
+                        <Typography mb={2} variant="subtitle1" key={detail.length}>
                             {detail}
                         </Typography>
                     )}
