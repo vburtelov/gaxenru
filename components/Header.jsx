@@ -14,14 +14,14 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "@mui/material/Link";
 import {usePathname} from "next/navigation";
+import {Stack} from "@mui/material";
 
 const pages = [
-    {title: "TELEGRAM", slug: "#telegram"},
-    {title: "PRESETS", slug: "#presets"},
-    {title: "COMMERCIAL", slug: "/commercial"},
-    {title: "TFP", slug: "/tfp"},
-    {title: "PORTFOLIO", slug: "/portfolio"},
-    {title: "CONTACT", slug: "#contact"},
+    {title: "TG", slug: "/#telegram"},
+    {title: "ПРЕСЕТЫ", slug: "/#presets"},
+    {title: "СЪЕМКА", slug: "/shoot"},
+    {title: "ПОРТФОЛИО", slug: "https://www.behance.net/gaxen"},
+    {title: "СВЯЗАТЬСЯ", slug: "/#contact"},
 ];
 
 export default function ResponsiveAppBar() {
@@ -37,7 +37,7 @@ export default function ResponsiveAppBar() {
     };
 
     return (
-        <AppBar position="absolute" style={{background: 'transparent', boxShadow: 'none'}}>
+        <AppBar position="absolute">
             <Container maxWidth="disable">
                 <Toolbar disableGutters>
                     <Link
@@ -47,18 +47,29 @@ export default function ResponsiveAppBar() {
                             color: "inherit",
                         }}
                     >
-                        <Typography
-                            variant="h4"
-                            noWrap
-                            sx={{
-                                mr: 2,
-                                display: "flex",
-                                fontFamily: "monospace",
-                                letterSpacing: ".6rem",
-                            }}
-                        >
-                            GAXEN
-                        </Typography>
+                        <Stack direction="row">
+                            <Typography
+                                variant="h4"
+                                sx={{
+                                    mr: 1,
+                                    display: "flex",
+                                    fontFamily: "monospace",
+                                    letterSpacing: ".4rem",
+                                    fontWeight: "lighter",
+                                }}
+                            >
+                                MARK
+                            </Typography>
+                            <Typography variant="h4"
+                                        sx={{
+                                            mr: 2,
+                                            display: "flex",
+                                            fontFamily: "monospace",
+                                            letterSpacing: ".6rem",
+                                            fontWeight: "bold",
+                                            fontStyle: "italic",
+                                        }}> GAXEN</Typography>
+                        </Stack>
                     </Link>
 
                     <Box
@@ -73,6 +84,8 @@ export default function ResponsiveAppBar() {
                             <Link
                                 key={page.slug}
                                 href={page.slug}
+                                target={page.slug.includes('https') ? "_blank" : "_self"}
+                                rel={page.slug.includes('https') ? "noopener noreferrer" : ""}
                                 style={{
                                     textDecoration: "none",
                                     color: "inherit",
@@ -95,6 +108,7 @@ export default function ResponsiveAppBar() {
                                 </Button>
                             </Link>
                         ))}
+
                     </Box>
                     <Box
                         sx={{

@@ -10,15 +10,17 @@ export const theme = createTheme({
     palette: {
         mode: "dark",
         primary: {
-            main: "#3f51b5",
+            main: '#0057FF', // Behance's primary blue
         },
         secondary: {
-            main: "#212121",
+            main: '#191919', // Behance's dark gray
         },
-        background: {
-            default: "#121212",
-            paper: "#121212",
-            card: "#272727",
+        error: {
+            main: '#FF5C00', // An orange error color for contrast
+        },
+        text: {
+            primary: '#ffffff', // Behance's dark gray for primary text
+            secondary: '#737373', // Behance's medium gray for secondary text
         },
     },
     typography: {

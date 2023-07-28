@@ -14,7 +14,7 @@ export default function RootLayout({children}) {
     return (
         <html lang="en">
         <head>
-            <title>GAXEN | Photographer</title>
+            <title>MARK GAXEN | Photographer</title>
             <meta name="description" content="Vadim Burtelov | Java Developer"/>
             <link rel="favicon" href="/favicon.ico" sizes="any"/>
         </head>

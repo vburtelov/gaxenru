@@ -1,22 +1,37 @@
 /*
  * @author Vadim Burtelov https://burtelov.ru/
  */
-
+"use client";
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import {Card, CardActionArea, CardActions, CardContent, CardMedia, Divider, Stack} from "@mui/material";
+import {
+    Card,
+    CardActionArea,
+    CardActions,
+    CardContent,
+    CardMedia,
+    Divider,
+    Stack,
+    useMediaQuery,
+    useTheme
+} from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from '@mui/material/Unstable_Grid2';
 import Button from "@mui/material/Button";
+import Section from "@/components/Section";
 
 export default function Home() {
+    const theme = useTheme();
+    const isMdScreen = useMediaQuery(theme.breakpoints.down('md'));
     return (
         <Box sx={{flexGrow: 1}}>
             <Stack direction="column">
                 <Box style={{
-                    backgroundImage: `url('VLOV6818.jpg')`,
+                    backgroundImage: `url('main.webp')`,
                     backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "65%",
                     width: "100vw",
                     height: "100vh",
                 }}>
@@ -28,174 +43,152 @@ export default function Home() {
                         height="inherit"
                     >
                         <Container maxWidth="disable">
-                            <Typography variant="h1">
+                            <Typography variant={isMdScreen ? 'h3' : 'h1'}>
                                 A VISUAL
                             </Typography>
-                            <Typography variant="h1" fontStyle="italic">
+                            <Typography variant={isMdScreen ? 'h3' : 'h1'} fontStyle="italic">
                                 EXPLORER
                             </Typography>
                         </Container>
                     </Stack>
                 </Box>
-                <Box id="telegram">
-                    <Grid container my="100px" justifyContent="space-between">
-                        <Grid xs={3}>
-                            <Divider sx={{
-                                marginTop: "1rem"
-                            }}/>
-                        </Grid>
-                        <Grid xs={3}>
-                            <Typography variant="h3" fontWeight="lighter" mb={4}>
-                                <i>ЧУТЬ БОЛЬШЕ,</i> ЧЕМ О ФОТОГРАФИИ В <i>TELEGRAM-</i>КАНАЛЕ <i>GAXEN</i>
-                            </Typography>
-                            <Typography mb={4} variant="subtitle1">
-                                GAXEN - это мой канал, в котором я пишу на непопулярные, но очень важные, на моей
-                                взгляд, темы в контексте фотографии и творчества.
-                            </Typography>
-                            <Typography variant="subtitle1" mb={8}>
-                                Там я делюсь своим опытом, своим видением, а также стараюсь вдохновлять людей слышать
-                                себя и идти в творчество от сердца, отпуская все страхи.
-                            </Typography>
-                            <Button variant="outlined" size="large" sx={{
-                                width: "33%"
-                            }}>
-                                Читать
-                            </Button>
-                        </Grid>
-                        <Grid xs={5}>
-                            <Box width="500px" height="500px" bgcolor="red">
+                <Section id="telegram"
+                         bgColor=""
+                         sectionTitle="ЧУТЬ БОЛЬШЕ, ЧЕМ О ФОТОГРАФИИ В TELEGRAM-КАНАЛЕ GAXEN"
+                         details={[
+                             "GAXEN - это мой канал, в котором я пишу на непопулярные, но очень важные, на моей взгляд, темы в контексте фотографии и творчества.",
+                             "Там я делюсь своим опытом, своим видением, а также стараюсь вдохновлять людей слышать себя и идти в творчество от сердца, отпуская все страхи.",
+                         ]}
+                         buttonLabel="Читать"
+                         buttonLink="https://t.me/gaxxxen"
+                         mdSizes={[3, 4, 5]}
 
-                            </Box>
-                        </Grid>
-                    </Grid>
-                </Box>
-                <Box id="presets" sx={{height: "100vh", width: "100vw"}} bgcolor="secondary.main">
-                    <Grid container mt="100px" mb="50px" spacing={2}>
+
+                />
+                <Box id="presets" bgcolor="secondary.main">
+                    <Grid container my={isMdScreen ? 4 : 8} spacing={2}>
                         <Grid xs={3}>
                             <Divider sx={{
                                 marginTop: "1rem"
                             }}/>
                         </Grid>
                         <Grid xs={3}>
-                            <Typography variant="h3" fontWeight="lighter" mb={4}>
+                            <Typography variant={isMdScreen ? 'h4' : 'h3'} fontWeight="lighter">
                                 ПРЕСЕТЫ
                             </Typography>
                         </Grid>
                         <Grid xs={5}>
                         </Grid>
                     </Grid>
-                    <Grid container mb="100px" justifyContent="center" alignItems="center">
-                        <Grid xs={3} justifyContent="center" alignItems="center">
-                            <Card sx={{maxWidth: 400, height: '100%', display: 'flex', flexDirection: 'column'}}>
+                    <Container maxWidth="lg">
+                        <Stack direction={isMdScreen ? 'column' : 'row'} spacing={2}
+                               mb={isMdScreen ? 4 : 8} alignItems="center"
+                               justifyContent="center">
+                            <Card sx={{
+                                height: '100%',
+                                width: isMdScreen ? '80%' : '30vw',
+                                display: 'flex',
+                                flexDirection: 'column'
+                            }}>
                                 <CardActionArea>
                                     <CardMedia
                                         component="img"
                                         height="300"
-                                        image="/static/images/cards/contemplative-reptile.jpg"
+                                        image="img1.jpg"
                                         alt="green iguana"
                                     />
                                     <CardContent sx={{flexGrow: 1}}>
                                         <Typography gutterBottom variant="h5" component="div">
-                                            GAXEN CREATIVE PACK
+                                            MG CREATIVE PACK
                                         </Typography>
-                                        <Typography variant="body2" color="text.secondary" minHeight="200px">
+                                        <Typography variant="body2" color="text.secondary" minHeight={isMdScreen ? "false" : "180px"}>
                                             Данный пак был создан на основе моих принципов работы в цветокоррекции и
-                                            состоит из пресетов, которые я сама сейчас использую в работе.
+                                            состоит из пресетов, которые я сам сейчас использую в работе.
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
                                 <CardActions>
-                                    <Button size="small" color="primary">
+                                    <Button size={isMdScreen ? "medium" : "large"} variant="contained" fullWidth
+                                            color="primary">
                                         КУПИТЬ
                                     </Button>
                                 </CardActions>
                             </Card>
-                        </Grid>
-                        <Grid xs={3} justifyContent="center" alignItems="center">
-                            <Card sx={{maxWidth: 400, height: '100%', display: 'flex', flexDirection: 'column'}}>
+                            <Card sx={{
+                                height: '100%',
+                                width: isMdScreen ? '80%' : '30vw',
+                                display: 'flex',
+                                flexDirection: 'column'
+                            }}>
                                 <CardActionArea>
                                     <CardMedia
                                         component="img"
                                         height="300"
-                                        image="/static/images/cards/contemplative-reptile.jpg"
+                                        image="img2.jpg"
                                         alt="green iguana"
                                     />
                                     <CardContent sx={{flexGrow: 1}}>
                                         <Typography gutterBottom variant="h5" component="div">
-                                            GAXEN DAILY PACK
+                                            MG DAILY PACK
                                         </Typography>
-                                        <Typography variant="body2" color="text.secondary" minHeight="200px">
-                                            Сборник пресетов, которые я создавала для себя для повседневного
-                                            использования. Я довольно много снимаю и веду визуальный дневник, поэтому
-                                            мне важно иметь возможность быстро и разнообразно обрабатывать то, что
-                                            получается. Я люблю яркие и насыщенные цвета, и именно эти ощущения я и
-                                            постаралась отразить в новом паке.
+                                        <Typography variant="body2" color="text.secondary" minHeight={isMdScreen ? "false" : "180px"}>
+                                            Сборник пресетов, которые я создавал для себя для повседневного
+                                            использования. Я люблю яркие и насыщенные цвета, и именно эти ощущения я и
+                                            постарался отразить в новом паке.
                                             Пресеты подходят для любых кадров, не обязательно только повседневных.
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
                                 <CardActions>
-                                    <Button size="small" color="primary">
+                                    <Button size={isMdScreen ? "medium" : "large"} variant="contained" fullWidth
+                                            color="primary">
                                         КУПИТЬ
                                     </Button>
                                 </CardActions>
                             </Card>
-                        </Grid>
-                        <Grid xs={3} justifyContent="center" alignItems="center">
-                            <Card sx={{maxWidth: 400, height: '100%', display: 'flex', flexDirection: 'column'}}>
+                            <Card sx={{
+                                height: '100%',
+                                width: isMdScreen ? '80%' : '30vw',
+                                display: 'flex',
+                                flexDirection: 'column'
+                            }}>
                                 <CardActionArea>
                                     <CardMedia
                                         component="img"
                                         height="300"
-                                        image="/static/images/cards/contemplative-reptile.jpg"
+                                        image="img3.jpg"
                                         alt="green iguana"
                                     />
                                     <CardContent sx={{flexGrow: 1}}>
                                         <Typography gutterBottom variant="h5" component="div">
-                                            GAXEN VIDEO LUTS
+                                            MG VIDEO LUTS
                                         </Typography>
-                                        <Typography variant="body2" color="text.secondary" minHeight="200px">
-                                            Данный пак — это сборник из 16 лутов, которые я сделала на основе своей
+                                        <Typography variant="body2" color="text.secondary" minHeight={isMdScreen ? "false" : "180px"}>
+                                            Данный пак — это сборник из 16 лутов, которые я сделал на основе своей
                                             обработки повседневных видео.
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
                                 <CardActions>
-                                    <Button size="small" color="primary">
+                                    <Button size={isMdScreen ? "medium" : "large"} variant="contained" fullWidth
+                                            color="primary">
                                         КУПИТЬ
                                     </Button>
                                 </CardActions>
                             </Card>
-                        </Grid>
-                    </Grid>
+                        </Stack>
+                    </Container>
                 </Box>
-                <Box id="contact">
-                    <Grid container my="100px" justifyContent="space-between">
-                        <Grid xs={3}>
-                            <Divider sx={{
-                                marginTop: "1rem"
-                            }}/>
-                        </Grid>
-                        <Grid xs={3}>
-                            <Typography variant="h3" fontWeight="lighter">
-                                <i>НЕ СТЕСНЯЙТЕСЬ</i>
-                            </Typography>
-                            <Typography variant="h3" fontWeight="lighter" mb={4}>
-                                НАПИСАТЬ МНЕ
-                            </Typography>
-                            <Typography mb={4} variant="subtitle1">
-                                Если у вас есть какие-то вопросы или предложения, не стесняйтесь написать мне.
-                            </Typography>
-                            <Button variant="outlined" size="large" sx={{
-                                width: "33%"
-                            }}>
-                                Читать
-                            </Button>
-                        </Grid>
-                        <Grid xs={5}>
-                        </Grid>
-                    </Grid>
-                </Box>
+                <Section id="contact"
+                         bgColor=""
+                         sectionTitle="НАПИШИТЕ МНЕ"
+                         details={[
+                             "Если у вас есть какие-то вопросы или предложения, не стесняйтесь написать мне.",
+                         ]}
+                         buttonLabel="НАПИСАТЬ"
+                         buttonLink="https://t.me/gaxenru"
+                         mdSizes={[3, 4, 5]}
+                />
 
 
             </Stack>
