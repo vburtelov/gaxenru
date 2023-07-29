@@ -27,7 +27,7 @@ const pages = [
 
 export default function ResponsiveAppBar() {
     const theme = useTheme();
-    const isMdScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const isMdScreen = useMediaQuery(theme.breakpoints.down('md'), {noSsr: true});
     const pathname = usePathname();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 

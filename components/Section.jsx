@@ -21,7 +21,7 @@ export default function Section({
                                     mdSizes = [3, 7, 2],
                                 }) {
     const theme = useTheme();
-    const isMdScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const isMdScreen = useMediaQuery(theme.breakpoints.down('md'), {noSsr: true});
 
     return (
         <Box id={id} bgcolor={bgColor}>

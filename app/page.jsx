@@ -23,7 +23,7 @@ import Section from "@/components/Section";
 
 export default function Home() {
     const theme = useTheme();
-    const isMdScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const isMdScreen = useMediaQuery(theme.breakpoints.down('md'), {noSsr: true});
     return (
         <Box sx={{flexGrow: 1}}>
             <Stack direction="column">

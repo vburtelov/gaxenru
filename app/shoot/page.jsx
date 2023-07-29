@@ -12,7 +12,7 @@ import Section from "@/components/Section";
 
 export default function Shoot() {
     const theme = useTheme();
-    const isMdScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const isMdScreen = useMediaQuery(theme.breakpoints.down('md'), {noSsr: true});
 
     const commercialSection = (
         <Section id="commercial"
