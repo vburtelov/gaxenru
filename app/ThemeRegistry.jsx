@@ -9,6 +9,7 @@ import {CacheProvider} from "@emotion/react";
 import {ThemeProvider} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import {theme} from "./theme"
+import {responsiveFontSizes} from "@mui/material";
 
 export default function ThemeRegistry(props) {
     const {options, children} = props;
@@ -55,7 +56,7 @@ export default function ThemeRegistry(props) {
 
     return (
         <CacheProvider value={cache}>
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={responsiveFontSizes(theme)}>
                 <CssBaseline/>
                 {children}
             </ThemeProvider>

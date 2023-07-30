@@ -1,21 +1,17 @@
 /*
  * @author Vadim Burtelov https://burtelov.ru/
  */
-"use client";
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import {Stack, useMediaQuery, useTheme} from "@mui/material";
+import {Stack} from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Section from "@/components/Section";
 
 export default function Shoot() {
-    const theme = useTheme();
-    const isMdScreen = useMediaQuery(theme.breakpoints.down('md'), {noSsr: true});
-
     const commercialSection = (
-        <Section id="commercial"
+        <Section
                  sectionTitle="КОММЕРЧЕСКАЯ СЪЕМКА"
                  details={[
                      "Я работаю исключительно в своем стиле. Ознакомиться с ним вы можете в моем инстаграме. При этом я всегда рад пожеланиям в рамках того, что я снимаю. Вне рамок своего стиля я не работаю. Если вы соглашаетесь на съемку у меня, это подразумевает то, что вы ознакомились с той стилистикой, в которой я работаю.",
@@ -40,7 +36,7 @@ export default function Shoot() {
     return (
         <Box sx={{flexGrow: 1}}>
             <Stack direction="column">
-                <Stack direction={isMdScreen ? "column" : "row"}>
+                <Stack direction={{xs: 'column', md: 'row'}}>
                     <Link href="#commercial" sx={{textDecoration: "none", color: "text.primary"}}>
                         <Box sx={{
                             backgroundImage: `linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), url('commercial.webp')`,
@@ -49,7 +45,7 @@ export default function Shoot() {
                             backgroundPosition: "center",
                             display: "flex",
                             alignItems: "flex-end",
-                            width: isMdScreen ? "100vw" : "calc(50vw - 2px)",
+                            width: {xs: "100vw", md: "calc(50vw - 2px)"},
                             height: "100vh",
                             borderRight: "2px solid #ffffff",
                             cursor: "pointer",
@@ -66,14 +62,16 @@ export default function Shoot() {
                                 height="inherit"
                             >
                                 <Container maxWidth="disable">
-                                    <Typography variant={isMdScreen ? 'h3' : 'h1'} fontStyle="italic">
+                                    <Typography variant='h1' fontStyle="italic">
                                         COMMERCIAL
                                     </Typography>
                                 </Container>
                             </Stack>
                         </Box>
                     </Link>
-                    {isMdScreen && commercialSection}
+                    <Box id="commercial" sx={{display: {xs: "flex", md: "none"}}}>
+                        {commercialSection}
+                    </Box>
 
                     <Link href="#tfp" sx={{textDecoration: "none", color: "text.primary"}}>
                         <Box sx={{
@@ -83,7 +81,7 @@ export default function Shoot() {
                             backgroundPosition: "center",
                             display: "flex",
                             alignItems: "flex-end",
-                            width: isMdScreen ? "100vw" : "calc(50vw - 2px)",
+                            width: {xs: "100vw", md: "calc(50vw - 2px)"},
                             height: "100vh",
                             cursor: "pointer",
                             ':hover h1': {
@@ -99,7 +97,7 @@ export default function Shoot() {
                                 height="inherit"
                             >
                                 <Container maxWidth="disable">
-                                    <Typography variant={isMdScreen ? 'h3' : 'h1'} fontStyle="italic">
+                                    <Typography variant='h1' fontStyle="italic">
                                         TFP
                                     </Typography>
                                 </Container>
@@ -107,8 +105,9 @@ export default function Shoot() {
                         </Box>
                     </Link>
                 </Stack>
-                {!isMdScreen && commercialSection
-                }
+                <Box id="commercial" display={{xs: "none", md: "flex"}}>
+                    {commercialSection}
+                </Box>
                 <Section
                     id="tfp"
                     bgColor="secondary.main"

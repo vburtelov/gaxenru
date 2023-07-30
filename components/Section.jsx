@@ -1,11 +1,8 @@
 /*
  * @author Vadim Burtelov https://burtelov.ru/
  */
-
-"use client";
-
 import * as React from "react";
-import {Divider, useMediaQuery, useTheme} from "@mui/material";
+import {Divider} from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
@@ -20,18 +17,16 @@ export default function Section({
                                     bgColor = "",
                                     mdSizes = [3, 7, 2],
                                 }) {
-    const theme = useTheme();
-    const isMdScreen = useMediaQuery(theme.breakpoints.down('md'), {noSsr: true});
-
     return (
         <Box id={id} bgcolor={bgColor}>
-            <Grid container my={isMdScreen ? 4 : 8} justifyContent="space-between">
+            <Grid container my={8} justifyContent="space-between">
                 <Grid xs={2} md={mdSizes[0]}>
                     <Divider sx={{marginTop: "1rem"}}/>
                 </Grid>
                 <Grid xs={8} md={mdSizes[1]}>
-                    <Typography variant={isMdScreen ? 'h4' : 'h3'} fontWeight="lighter"
-                                mb={isMdScreen ? 4 : 8}>
+                    <Typography variant="h3"
+                                fontWeight="lighter"
+                                mb={4}>
                         <i>{sectionTitle}</i>
                     </Typography>
                     {details.map((detail) =>
@@ -39,8 +34,13 @@ export default function Section({
                             {detail}
                         </Typography>
                     )}
-                    <Button variant="outlined" size={isMdScreen ? "medium" : "large"} href={buttonLink}
-                            target="_top" sx={{width: isMdScreen ? "100%" : "50%"}}>
+                    <Button variant="outlined"
+                            href={buttonLink}
+                            mt={2}
+                            target="_top" sx={{
+                        width: {xs: "100%", md: "50%"},
+                        fontSize: {xs: "large", md: "medium"}
+                    }}>
                         {buttonLabel}
                     </Button>
                 </Grid>

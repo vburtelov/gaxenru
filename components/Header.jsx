@@ -1,7 +1,6 @@
 /*
  * @author Vadim Burtelov https://burtelov.ru/
  */
-"use client";
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -15,7 +14,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "@mui/material/Link";
 import {usePathname} from "next/navigation";
-import {Stack, useMediaQuery, useTheme} from "@mui/material";
+import {Stack} from "@mui/material";
 
 const pages = [
     {title: "TG", slug: "/#telegram"},
@@ -26,8 +25,6 @@ const pages = [
 ];
 
 export default function ResponsiveAppBar() {
-    const theme = useTheme();
-    const isMdScreen = useMediaQuery(theme.breakpoints.down('md'), {noSsr: true});
     const pathname = usePathname();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -52,7 +49,7 @@ export default function ResponsiveAppBar() {
                     >
                         <Stack direction="row">
                             <Typography
-                                variant={isMdScreen ? 'h5' : 'h4'}
+                                variant='h4'
                                 sx={{
                                     mr: 1,
                                     display: "flex",
@@ -63,7 +60,7 @@ export default function ResponsiveAppBar() {
                             >
                                 MARK
                             </Typography>
-                            <Typography variant={isMdScreen ? 'h5' : 'h4'}
+                            <Typography variant='h4'
                                         sx={{
                                             mr: 2,
                                             display: "flex",

@@ -1,7 +1,6 @@
 /*
  * @author Vadim Burtelov https://burtelov.ru/
  */
-"use client";
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import {
@@ -11,9 +10,7 @@ import {
     CardContent,
     CardMedia,
     Divider,
-    Stack,
-    useMediaQuery,
-    useTheme
+    Stack
 } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -22,8 +19,6 @@ import Button from "@mui/material/Button";
 import Section from "@/components/Section";
 
 export default function Home() {
-    const theme = useTheme();
-    const isMdScreen = useMediaQuery(theme.breakpoints.down('md'), {noSsr: true});
     return (
         <Box sx={{flexGrow: 1}}>
             <Stack direction="column">
@@ -43,10 +38,11 @@ export default function Home() {
                         height="inherit"
                     >
                         <Container maxWidth="disable">
-                            <Typography variant={isMdScreen ? 'h3' : 'h1'}>
+                            <Typography
+                                variant="h1">
                                 A VISUAL
                             </Typography>
-                            <Typography variant={isMdScreen ? 'h3' : 'h1'} fontStyle="italic">
+                            <Typography variant="h1" fontStyle="italic">
                                 EXPLORER
                             </Typography>
                         </Container>
@@ -66,14 +62,17 @@ export default function Home() {
 
                 />
                 <Box id="presets" bgcolor="secondary.main">
-                    <Grid container my={isMdScreen ? 4 : 8} spacing={2}>
+                    <Grid container
+                          my={8}>
                         <Grid xs={3}>
                             <Divider sx={{
                                 marginTop: "1rem"
                             }}/>
                         </Grid>
                         <Grid xs={3}>
-                            <Typography variant={isMdScreen ? 'h4' : 'h3'} fontWeight="lighter">
+                            <Typography
+                                variant="h3"
+                                fontWeight="lighter">
                                 ПРЕСЕТЫ
                             </Typography>
                         </Grid>
@@ -81,12 +80,15 @@ export default function Home() {
                         </Grid>
                     </Grid>
                     <Container maxWidth="lg">
-                        <Stack direction={isMdScreen ? 'column' : 'row'} spacing={2}
-                               mb={isMdScreen ? 4 : 8} alignItems="center"
-                               justifyContent="center">
+                        <Stack
+                            direction={{ xs: 'column', md: 'row' }}
+                            spacing={2}
+                            mb={8}
+                            alignItems="center"
+                            justifyContent="center">
                             <Card sx={{
                                 height: '100%',
-                                width: isMdScreen ? '80%' : '30vw',
+                                width: {xs: '80%', md: '30vw'},
                                 display: 'flex',
                                 flexDirection: 'column'
                             }}>
@@ -101,22 +103,30 @@ export default function Home() {
                                         <Typography gutterBottom variant="h5" component="div">
                                             MG CREATIVE PACK
                                         </Typography>
-                                        <Typography variant="body2" color="text.secondary" minHeight={isMdScreen ? "false" : "180px"}>
+                                        <Typography variant="body2" color="text.secondary"
+                                                    sx={{
+                                                        minHeight: {xs: "180px", md: "false"}
+                                                    }}
+                                        >
                                             Данный пак был создан на основе моих принципов работы в цветокоррекции и
                                             состоит из пресетов, которые я сам сейчас использую в работе.
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
                                 <CardActions>
-                                    <Button size={isMdScreen ? "medium" : "large"} variant="contained" fullWidth
-                                            color="primary">
+                                    <Button
+                                        xs={{
+                                            fontSize: {xs: "large", md: "medium"}
+                                        }}
+                                        variant="contained" fullWidth
+                                        color="primary">
                                         КУПИТЬ
                                     </Button>
                                 </CardActions>
                             </Card>
                             <Card sx={{
                                 height: '100%',
-                                width: isMdScreen ? '80%' : '30vw',
+                                width: {xs: '80%', md: '30vw'},
                                 display: 'flex',
                                 flexDirection: 'column'
                             }}>
@@ -131,7 +141,11 @@ export default function Home() {
                                         <Typography gutterBottom variant="h5" component="div">
                                             MG DAILY PACK
                                         </Typography>
-                                        <Typography variant="body2" color="text.secondary" minHeight={isMdScreen ? "false" : "180px"}>
+                                        <Typography variant="body2" color="text.secondary"
+                                                    sx={{
+                                                        minHeight: {xs: "180px", md: "false"}
+                                                    }}
+                                        >
                                             Сборник пресетов, которые я создавал для себя для повседневного
                                             использования. Я люблю яркие и насыщенные цвета, и именно эти ощущения я и
                                             постарался отразить в новом паке.
@@ -140,15 +154,19 @@ export default function Home() {
                                     </CardContent>
                                 </CardActionArea>
                                 <CardActions>
-                                    <Button size={isMdScreen ? "medium" : "large"} variant="contained" fullWidth
-                                            color="primary">
+                                    <Button
+                                        xs={{
+                                            fontSize: {xs: "large", md: "medium"}
+                                        }}
+                                        variant="contained" fullWidth
+                                        color="primary">
                                         КУПИТЬ
                                     </Button>
                                 </CardActions>
                             </Card>
                             <Card sx={{
                                 height: '100%',
-                                width: isMdScreen ? '80%' : '30vw',
+                                width: {xs: '80%', md: '30vw'},
                                 display: 'flex',
                                 flexDirection: 'column'
                             }}>
@@ -163,15 +181,23 @@ export default function Home() {
                                         <Typography gutterBottom variant="h5" component="div">
                                             MG VIDEO LUTS
                                         </Typography>
-                                        <Typography variant="body2" color="text.secondary" minHeight={isMdScreen ? "false" : "180px"}>
+                                        <Typography variant="body2" color="text.secondary"
+                                                    sx={{
+                                                        minHeight: {xs: "180px", md: "false"}
+                                                    }}
+                                        >
                                             Данный пак — это сборник из 16 лутов, которые я сделал на основе своей
                                             обработки повседневных видео.
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
                                 <CardActions>
-                                    <Button size={isMdScreen ? "medium" : "large"} variant="contained" fullWidth
-                                            color="primary">
+                                    <Button
+                                        xs={{
+                                            fontSize: {xs: "large", md: "medium"}
+                                        }}
+                                        variant="contained" fullWidth
+                                        color="primary">
                                         КУПИТЬ
                                     </Button>
                                 </CardActions>
