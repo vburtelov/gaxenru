@@ -39,17 +39,20 @@ export default function Home() {
                     >
                         <Container maxWidth="disable">
                             <Typography
+                                color="#fff"
                                 variant="h1">
                                 A VISUAL
                             </Typography>
-                            <Typography variant="h1" fontStyle="italic">
+                            <Typography
+                                color="#fff"
+                                variant="h1"
+                                fontStyle="italic">
                                 EXPLORER
                             </Typography>
                         </Container>
                     </Stack>
                 </Box>
                 <Section id="telegram"
-                         bgColor=""
                          sectionTitle="ЧУТЬ БОЛЬШЕ, ЧЕМ О ФОТОГРАФИИ В TELEGRAM-КАНАЛЕ GAXEN"
                          details={[
                              "GAXEN - это мой канал, в котором я пишу на непопулярные, но очень важные, на моей взгляд, темы в контексте фотографии и творчества.",
@@ -71,6 +74,7 @@ export default function Home() {
                         </Grid>
                         <Grid xs={3}>
                             <Typography
+                                color="secondary.contrastText"
                                 variant="h3"
                                 fontWeight="lighter">
                                 ПРЕСЕТЫ
@@ -81,7 +85,7 @@ export default function Home() {
                     </Grid>
                     <Container maxWidth="lg">
                         <Stack
-                            direction={{ xs: 'column', md: 'row' }}
+                            direction={{xs: 'column', md: 'row'}}
                             spacing={2}
                             mb={8}
                             alignItems="center"
@@ -206,7 +210,6 @@ export default function Home() {
                     </Container>
                 </Box>
                 <Section id="contact"
-                         bgColor=""
                          sectionTitle="НАПИШИТЕ МНЕ"
                          details={[
                              "Если у вас есть какие-то вопросы или предложения, не стесняйтесь написать мне.",

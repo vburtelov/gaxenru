@@ -16,11 +16,12 @@ export default function Footer() {
                 bottom: 0,
                 paddingTop: "1rem",
                 height: "70px",
+                bgcolor: "background.default",
             }}
         >
             <Container maxWidth="lg">
                 <Stack direction="column" alignItems="center">
-                    <Stack direction="row" spacing={4} justifyContent="center">
+                    <Stack direction="row" spacing={4} justifyContent="center" color="secondary.contrastText">
                         <IconButton
                             size="medium"
                             color="inherit"

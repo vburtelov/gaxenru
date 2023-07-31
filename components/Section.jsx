@@ -14,30 +14,35 @@ export default function Section({
                                     details = [],
                                     buttonLabel = "ПРИСЛАТЬ ФОТОГРАФИИ",
                                     buttonLink = "mailto:i@gaxen.ru",
-                                    bgColor = "",
                                     mdSizes = [3, 7, 2],
                                 }) {
     return (
-        <Box id={id} bgcolor={bgColor}>
+        <Box id={id} bgcolor="background.default">
             <Grid container my={8} justifyContent="space-between">
                 <Grid xs={2} md={mdSizes[0]}>
                     <Divider sx={{marginTop: "1rem"}}/>
                 </Grid>
                 <Grid xs={8} md={mdSizes[1]}>
                     <Typography variant="h3"
+                                color="secondary.contrastText"
                                 fontWeight="lighter"
                                 mb={4}>
                         <i>{sectionTitle}</i>
                     </Typography>
                     {details.map((detail) =>
-                        <Typography mb={2} variant="subtitle1" key={detail.length}>
+                        <Typography mb={2}
+                                    variant="subtitle1"
+                                    color="secondary.contrastText"
+                                    key={detail.length}>
                             {detail}
                         </Typography>
                     )}
-                    <Button variant="outlined"
-                            href={buttonLink}
-                            mt={2}
-                            target="_top" sx={{
+                    <Button
+
+                        variant="outlined"
+                        href={buttonLink}
+                        mt={2}
+                        target="_top" sx={{
                         width: {xs: "100%", md: "50%"},
                         fontSize: {xs: "large", md: "medium"}
                     }}>

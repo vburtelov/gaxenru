@@ -15,6 +15,8 @@ import MenuItem from "@mui/material/MenuItem";
 import Link from "@mui/material/Link";
 import {usePathname} from "next/navigation";
 import {Stack} from "@mui/material";
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 const pages = [
     {title: "TG", slug: "/#telegram"},
@@ -24,7 +26,7 @@ const pages = [
     {title: "СВЯЗАТЬСЯ", slug: "/#contact"},
 ];
 
-export default function ResponsiveAppBar() {
+export default function ResponsiveAppBar({toggleTheme, theme}) {
     const pathname = usePathname();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -37,7 +39,7 @@ export default function ResponsiveAppBar() {
     };
 
     return (
-        <AppBar position="absolute">
+        <AppBar position="absolute" color="secondary">
             <Container maxWidth="disable">
                 <Toolbar disableGutters>
                     <Link
@@ -100,7 +102,7 @@ export default function ResponsiveAppBar() {
                                         color={
                                             pathname === page.slug
                                                 ? "primary"
-                                                : "primary.contrastText"
+                                                : "secondary.contrastText"
                                         }
                                     >
                                         {page.title}
@@ -108,6 +110,10 @@ export default function ResponsiveAppBar() {
                                 </Button>
                             </Link>
                         ))}
+
+                        <IconButton sx={{ml: 1}} onClick={toggleTheme} color="inherit">
+                            {theme.palette.mode === 'dark' ? <Brightness7Icon/> : <Brightness4Icon/>}
+                        </IconButton>
 
                     </Box>
                     <Box
@@ -118,6 +124,9 @@ export default function ResponsiveAppBar() {
                             alignItems: "center",
                         }}
                     >
+                        <IconButton sx={{ml: 1}} onClick={toggleTheme} color="inherit">
+                            {theme.palette.mode === 'dark' ? <Brightness7Icon/> : <Brightness4Icon/>}
+                        </IconButton>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -160,7 +169,7 @@ export default function ResponsiveAppBar() {
                                             color={
                                                 pathname === page.slug
                                                     ? "primary"
-                                                    : "primary.contrastText"
+                                                    : "secondary.contrastText"
                                             }
                                         >
                                             {page.title}

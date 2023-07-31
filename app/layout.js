@@ -6,11 +6,19 @@
 
 import "./globals.css";
 import Header from "@/components/Header";
-import {CssBaseline} from "@mui/material";
 import Footer from "@/components/Footer";
 import ThemeRegistry from "@/app/ThemeRegistry";
+import {useState} from "react";
+import {darkTheme, lightTheme} from "@/app/theme";
 
 export default function RootLayout({children}) {
+
+    const [theme, setTheme] = useState(lightTheme);
+
+    const toggleTheme = () => {
+        setTheme(theme.palette.mode === "dark" ? lightTheme : darkTheme)
+    }
+
     return (
         <html lang="en">
         <head>
@@ -19,9 +27,8 @@ export default function RootLayout({children}) {
             <link rel="favicon" href="/favicon.ico" sizes="any"/>
         </head>
         <body>
-        <ThemeRegistry options={{key: "mui"}}>
-            <Header/>
-            <CssBaseline/>
+        <ThemeRegistry theme={theme} options={{key: "mui"}}>
+            <Header toggleTheme={toggleTheme} theme={theme}/>
             <main>{children}</main>
             <Footer/>
         </ThemeRegistry>

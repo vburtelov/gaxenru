@@ -37,7 +37,7 @@ export default function Shoot() {
         <Box sx={{flexGrow: 1}}>
             <Stack direction="column">
                 <Stack direction={{xs: 'column', md: 'row'}}>
-                    <Link href="#commercial" sx={{textDecoration: "none", color: "text.primary"}}>
+                    <Link href="#commercial" sx={{textDecoration: "none", color: "#fff"}}>
                         <Box sx={{
                             backgroundImage: `linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), url('commercial.webp')`,
                             backgroundSize: "cover",
@@ -73,7 +73,7 @@ export default function Shoot() {
                         {commercialSection}
                     </Box>
 
-                    <Link href="#tfp" sx={{textDecoration: "none", color: "text.primary"}}>
+                    <Link href="#tfp" sx={{textDecoration: "none", color: "#fff"}}>
                         <Box sx={{
                             backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), url('tfp.webp')`,
                             backgroundSize: "cover",
