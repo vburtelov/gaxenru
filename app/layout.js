@@ -13,7 +13,7 @@ import {darkTheme, lightTheme} from "@/app/theme";
 
 export default function RootLayout({children}) {
 
-    const [theme, setTheme] = useState(lightTheme);
+    const [theme, setTheme] = useState(darkTheme);
 
     const toggleTheme = () => {
         setTheme(theme.palette.mode === "dark" ? lightTheme : darkTheme)
